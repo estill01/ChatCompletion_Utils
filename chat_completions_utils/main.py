@@ -1,12 +1,15 @@
-import tiktoken
 import openai
+import os
+import tiktoken
+from typing import List
 
 openai.api_key=os.environ.get("OPENAI_API_KEY")
 
-def llm(system_instruction: str = None, user_input: str = None, temp: int = 0) -> str:
-    messages = _make_prompt(
+def llm(system_instruction: str = None, user_input: str = None, temp: int = 0, messages: List[Dict[str, str]] = []) -> str:
+    messages = _build_prompt(
         system=system_instruction
-        user=user_input
+        user=user_input,
+        messages=messages,
     )
     model = select_model(messages)
     response = openai.ChatCompletion.create(
@@ -24,7 +27,7 @@ def llm(system_instruction: str = None, user_input: str = None, temp: int = 0) -
 
 def _code_prompt(prompt: str = None) -> str:
     # TODO Check if received `prompt` ends with a '.' and accomodate
-    base_prompt = f"Only output code. Do NOT include introductory text or explain the code you have generated after producing it. If you are unable to perform the code translation respond 'ERROR'"
+    base_prompt = f"Generate code. Only output code. Do NOT include introductory text or explain the code you have generated after producing it. If you are unable to perform the code translation respond 'ERROR'"
     return f"{prompt} {base_prompt}"
 
 
@@ -88,7 +91,7 @@ def _build_user_prompt(content: str) -> Dict[str, str]:
 def _build_system_prompt(content: str) -> Dict[str, str]:
     return {'role': 'system', 'content': content }
 
-def buid_prompt(
+def build_prompt(
     *, 
     system_content: str = None, 
     user_content: str = None, 
