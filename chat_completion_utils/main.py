@@ -5,6 +5,7 @@ from typing import List
 
 openai.api_key=os.environ.get("OPENAI_API_KEY")
 
+# -- PRIMARY LIB INTERFACE  --
 def llm(system_instruction: str = None, user_input: str = None, temp: int = 0, messages: List[Dict[str, str]] = []) -> str:
     messages = _build_prompt(
         system=system_instruction
@@ -18,12 +19,15 @@ def llm(system_instruction: str = None, user_input: str = None, temp: int = 0, m
         temperature=temp,
         max_tokens=MODELS[model].max_tokens
     )
+    # TODO Add (optional) output formatter here before returning value
     return response.choices[0].message.content
 
 
 # ----------------------------------------------------
 # PROMPT PARTIALS
 # ----------------------------------------------------
+
+# Add language to prompts to help steer LLM output
 
 def _code_prompt(prompt: str = None) -> str:
     # TODO Check if received `prompt` ends with a '.' and accomodate
