@@ -77,61 +77,58 @@ print(prompt)
 ```
 
 ## Functions
-`llm()`
+### `llm()`
 Generate a chat-based completion using the OpenAI API.
 
-### Arguments
+#### Arguments
 - system_instruction (str): The system instruction.
 - user_input (str): The user input.
 - temp (int): The temperature for controlling randomness of the output.
 
-### Returns
+#### Returns
 (str): The response from the model.
 
-`_code_prompt()`
+### `_code_prompt()`
 Generate a code-only prompt.
 
-### Arguments
+#### Arguments
 - prompt (str): The base prompt to modify.
 
-### Returns
+#### Returns
 (str): The modified prompt for code-only output.
 
-`num_tokens_from_messages()`
+### `num_tokens_from_messages()`
 Count the number of tokens used by a list of messages.
 
-### Arguments
+#### Arguments
 - messages (list): A list of messages.
 - model (str): The model name.
 
-### Returns
+#### Returns
 (int): The number of tokens used by the list of messages.
 
 
-`select_model()`
+### `select_model()`
 Select the appropriate model based on token count.
 
-### Arguments
+#### Arguments
 - messages (list): A list of messages.
 - model_family (str): The model family (default: 'gpt-4').
 - force (bool): Force the use of the specified model family if the token count is within limits.
 
-### Returns
+#### Returns
 (str): The selected model name.
 
-`buid_prompt()`
+### `buid_prompt()`
 Build a list of messages to use as input for the OpenAI API.
 
-### Arguments
+#### Arguments
 - system_content (str): The content for the system message.
 - user_content (str): The content for the user message.
 - messages (list): An optional list of existing messages.
 
-### Returns
+#### Returns
 (list): A list of messages to be used as input for the OpenAI API.
 
-## Constants
+### Constants
 The MODELS constant is a dictionary containing information about the supported models and their properties, such as the maximum number of tokens allowed.
-
-
-
