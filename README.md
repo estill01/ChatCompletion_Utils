@@ -1,6 +1,6 @@
-# Chat Completions Utils
+# ChatCompletion Utils
 
-Chat Completions Utils is a Python library that provides utility functions to interact with OpenAI's Chat Completion API. It enables you to easily generate prompts, count tokens, and select models for chat-based completions.
+ChatCompletion Utils is a Python library that provides utility functions to very easily interact with OpenAI's Chat Completion API. It enables you to easily generate chat-friendly prompts, count tokens, and auto-select which model to use based on context length for the chat completion API endpoint. It also has a few other bells and whistles ;)
 
 ## Installation
 
@@ -20,7 +20,7 @@ export OPENAI_API_KEY=<your_api_key>
 Then, you can use the functions provided in the library:
 
 ```python
-from chat_completions_utils import (
+from chat_completion_utils import (
   llm, 
   _code_prompt, 
   num_tokens_from_messages, 
@@ -28,7 +28,7 @@ from chat_completions_utils import (
   buid_prompt
 )
 
-# Generate a 'ChatCompletions' response with the OpenAI API
+# Generate a 'ChatCompletion' response with the OpenAI API
 
 book_summary = llm(
   "Provide a brief summary of the following book series.",  # 'system' instruction
