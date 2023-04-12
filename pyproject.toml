@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "chat-completions-utils"
+name = "chat_completion_utils"
 version = "0.1.0"
 description = ""
 authors = ["estill01 <ehs.stillman@gmail.com>"]
 readme = "README.md"
-packages = [{include = "chat_completions_utils"}]
+packages = [{include = "chat_completion_utils"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
