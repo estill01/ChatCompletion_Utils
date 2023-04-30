@@ -47,12 +47,15 @@ def llm(
         temperature=temp,
         max_tokens=MODELS[model].max_tokens,
     )
+    # TODO Add (optional) output formatter here before returning value
     return response.choices[0].message.content
 
 
 # ----------------------------------------------------
 # PROMPT PARTIALS
 # ----------------------------------------------------
+
+# Add language to prompts to help steer LLM output
 
 def _code_prompt(prompt: str = None) -> str:
     # TODO Check if received `prompt` ends with a '.' and accomodate
