@@ -1,1 +1,1 @@
-from main import *
+from .chat_utils import *

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "chat_completion_utils"
-version = "0.1.0"
+version = "1.2.5"
 description = ""
 authors = ["estill01 <ehs.stillman@gmail.com>"]
 readme = "README.md"
